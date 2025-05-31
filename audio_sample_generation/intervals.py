@@ -11,6 +11,7 @@ def edo_steps(edo, steps):
     return 2**(steps/edo)
 
 a = 440
-createChordSample((a, a*2),"audio_samples/octave.wav")
-createChordSample((a, a*3/2),"audio_samples/just_perfect_fifth.wav")
-createChordSample((a, a*5/4, a*3/2),"audio_samples/4-5-6_major_triad.wav")
+createChordSample((a, a*2),"octave.wav")
+createChordSample((a, a*3/2),"just_perfect_fifth.wav")
+createChordSample((a, a*5/4, a*3/2),"4-5-6_major_triad.wav")
+createChordSample((a, a*(3/2)/(531441/524288)),"wolf-fifth.wav")

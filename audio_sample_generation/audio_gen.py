@@ -37,6 +37,9 @@ class AudioContex:
                 self.audio[int(self.sample_rate * location):int(self.sample_rate * (location+duration))] += amplitude * self.triangle_wave(frequency, self.time[int(self.sample_rate * location):int(self.sample_rate * (location+duration))])
             case 3:
                 self.audio[int(self.sample_rate * location):int(self.sample_rate * (location+duration))] += amplitude * self.sawtooth_wave(frequency, self.time[int(self.sample_rate * location):int(self.sample_rate * (location+duration))])
+            
+    def max_anticlip(self):
+        self.anti_clipping_scale = np.max(np.abs(self.audio))
     def get_wav(self, audiofilename):
         audio_data = np.int16(self.anti_clipping_scale * self.audio * 32767)
         write(audiofilename, self.sample_rate, audio_data)
